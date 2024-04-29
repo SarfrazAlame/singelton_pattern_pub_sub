@@ -6,7 +6,19 @@ interface Game {
 }
 
 export class GameManager {
+    private static instance: GameManager; // Create a static instance of the class
     private games: Game[] = [];
+
+    private constructor() {
+        // Private constructor ensures that a new instance cannot be created from outside
+    }
+
+    public static getInstance(): GameManager {
+        if (!GameManager.instance) {
+            GameManager.instance = new GameManager();
+        }
+        return GameManager.instance;
+    }
 
     public addGame(game: Game) {
         this.games.push(game);
@@ -16,7 +28,6 @@ export class GameManager {
         return this.games;
     }
 
-    // e5e7
     public addMove(gameId: string, move: string) {
         const game = this.games.find(game => game.id === gameId);
         if (game) {
@@ -24,9 +35,7 @@ export class GameManager {
         }
     }
 
-    addLog(){
-        console.log(this.games)
+    public logState() {
+        console.log(this.games);
     }
 }
-
-export const gameManager = new GameManager()
