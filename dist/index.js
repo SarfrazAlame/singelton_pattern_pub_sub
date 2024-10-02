@@ -4,16 +4,17 @@ const store_1 = require("./store");
 const logger_1 = require("./logger");
 (0, logger_1.startLogger)();
 setInterval(() => {
+    // games.push({
+    //     id: Math.random().toString(),
+    //     "whitePlayer": "harkirat",
+    //     "blackPlayer": "jaskirat",
+    //     moves: []
+    // })
+    store_1.gameManager.addGame(Math.random().toString());
     // GameManager.getInstance().addGame({
     //     id: Math.random().toString(),
     //     "whitePlayer": "harkirat",
     //     "blackPlayer": "jaskirat",
     //     moves: []
     // })
-    store_1.games.push({
-        id: Math.random().toString(),
-        "whitePlayer": "harkirat",
-        "blackPlayer": "jaskirat",
-        moves: []
-    });
 }, 5000);
