@@ -1,4 +1,4 @@
-import { gameManager, GameManager } from "./store";
+import { gameManager,   } from "./store";
 import { startLogger } from "./logger";
 
 
